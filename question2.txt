@@ -1,0 +1,91 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+        home: Container(
+      decoration: const BoxDecoration(color: Colors.white54),
+      child: Column(
+        children: [
+          Container(
+              height: 250,
+              width: 150,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 237, 143, 137),
+                    Color.fromARGB(255, 237, 183, 179),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 2,
+                  )
+                ],
+                color: Color.fromARGB(255, 237, 143, 137),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(100),
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  const Text(
+                    'Breakfast',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  RichText(
+                    text: const TextSpan(
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Bread\n',
+                        ),
+                        TextSpan(
+                          text: 'Penaut butter\n',
+                        ),
+                        TextSpan(
+                          text: 'Apple',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  RichText(
+                    text: const TextSpan(
+                      text: ' 525 ',
+                      style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.white,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(text: 'kcal', style: TextStyle(fontSize: 10)),
+                      ],
+                    ),
+                  ),
+                ],
+              )),
+        ],
+      ),
+    )),
+  );
+}

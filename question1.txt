@@ -1,0 +1,28 @@
+import 'dart:io';
+
+void main() {
+  final directoryPath = 'C:\TURBOC3';
+
+  final dir = Directory(directoryPath);
+
+  if (!dir .existsSync()) {
+    print('The specified directory does not exist.');
+    return;
+  }
+
+  printFilesWithParentFolders(dir, '');
+}
+
+void printFilesWithParentFolders(Directory dir, String parentFolderName) {
+  final files = dir.listSync();
+
+  for (var file in files) {
+    if (file is File) {
+      print(
+          '${parentFolderName.isEmpty ? '' : '$parentFolderName/'}${file.path.split('/').last}');
+    } else if (file is Directory) {
+      printFilesWithParentFolders(file,
+          '${parentFolderName.isEmpty ? '' : '$parentFolderName/'}${file.path.split('/').last}');
+    }
+  }
+}
